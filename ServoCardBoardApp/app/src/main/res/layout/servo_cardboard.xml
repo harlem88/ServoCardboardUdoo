@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="presenter" type="org.dronix.servocardboard.presenter.ServoCardBoardPresenter"/>
+    </data>
+<RelativeLayout
+    android:id="@+id/ui_layout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <com.google.vrtoolkit.cardboard.CardboardView
+        android:id="@+id/cardboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true" />
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/overlay"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_weight="1"
+            android:src="@{presenter.image}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+
+            android:id="@+id/imageView" />
+
+        <ImageView
+            android:layout_weight="1"
+            android:src="@{presenter.image}"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView2" />
+    </LinearLayout>
+</FrameLayout>
+</RelativeLayout>
+</layout>
