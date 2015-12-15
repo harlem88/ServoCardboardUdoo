@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ServoCardBoard.iml" filepath="$PROJECT_DIR$/ServoCardBoard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServoCardboardApp.iml" filepath="$PROJECT_DIR$/ServoCardboardApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -10,6 +10,6 @@ public class Direction {
     }
 
     public static Direction Builder(String dir){
-        return new Direction(dir);
+        return new Direction(dir.toLowerCase());
     }
 }

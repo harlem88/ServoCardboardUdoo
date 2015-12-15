@@ -30,7 +30,7 @@ public class ServerApiManager {
     }
 
     public void move( Direction direction){
-        mServerApiService.move(direction);
+        mServerApiService.move(direction).subscribe();
     }
 
     public interface ServerApiService {
