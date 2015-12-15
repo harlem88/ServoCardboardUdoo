@@ -5,7 +5,7 @@ local turbo = require("turbo")
 local commander = {}
 commander.left = "./commander.sh /dev/ttyMCC 1"
 commander.right = "./commander.sh /dev/ttyMCC 2"
-commander.reset = "./commander.sh /dev/ttyMCC 0"
+commander.center = "./commander.sh /dev/ttyMCC 0"
 
 local DirectionHandler = class("DirectionHandler", turbo.web.RequestHandler)
 
@@ -19,9 +19,9 @@ function DirectionHandler:post()
     elseif data.direction == "right" then
         print("Received RIGHT command...")
         io.popen(commander.right)
-    elseif data.direction == "reset" then
-        print("Received RESET command...")
-        io.popen(commander.reset)	
+    elseif data.direction == "center" then
+        print("Received CENTER command...")
+        io.popen(commander.center)	
     end
 end
 
