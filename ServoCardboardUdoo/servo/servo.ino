@@ -35,7 +35,7 @@ int center = 1.5 * 1000;
               dir = center;
               p_freq = FREQ/2;
           }
-          if(dir != -1)
+          if(value > -1 && value < 3)
             move_servo(dir, p_freq);
         }
       }

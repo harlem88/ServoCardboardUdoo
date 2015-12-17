@@ -1,28 +1,24 @@
 -- Import turbo,
 local turbo = require("turbo")
 
--- Create a new requesthandler with a method get() for HTTP GET.
-local commander = {}
-commander.left = "./commander.sh /dev/ttyMCC 1"
-commander.right = "./commander.sh /dev/ttyMCC 2"
-commander.center = "./commander.sh /dev/ttyMCC 0"
+local wserial = io.open("/dev/ttyMCC", "w")
 
 local DirectionHandler = class("DirectionHandler", turbo.web.RequestHandler)
 
 function DirectionHandler:post()
     local data = self:get_json(true)
     print("direction: " .. data.direction)
-
     if data.direction == "left" then
         print("Received LEFT command...")
-        io.popen(commander.left)
+        wserial:write("2")
     elseif data.direction == "right" then
         print("Received RIGHT command...")
-        io.popen(commander.right)
+	wserial:write("1")
     elseif data.direction == "center" then
-        print("Received CENTER command...")
-        io.popen(commander.center)	
+        print("Received RESET command...")
+	wserial:write("0")
     end
+    wserial:flush()
 end
 
 -- Create an Application object and bind our HelloWorldHandler to the route '/hello'.
